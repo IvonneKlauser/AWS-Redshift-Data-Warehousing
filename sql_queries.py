@@ -63,8 +63,8 @@ songplay_table_create = ("""CREATE TABLE IF NOT EXISTS songplays (
     , start_time TIMESTAMP NOT NULL SORTKEY
     , user_id BIGINT NOT NULL
     , level VARCHAR(50)
-    , song_id VARCHAR(18)
-    , artist_id VARCHAR(18) DISTKEY
+    , song_id VARCHAR(18) NOT NULL
+    , artist_id VARCHAR(18) DISTKEY NOT NULL
     , session_id BIGINT NOT NULL
     , location VARCHAR(255)
     , user_agent TEXT
@@ -88,7 +88,7 @@ user_table_create = ("""CREATE TABLE IF NOT EXISTS "users" (
 song_table_create = ("""CREATE TABLE IF NOT EXISTS songs (
       song_id VARCHAR PRIMARY KEY DISTKEY SORTKEY
     , title VARCHAR
-    , artist_id VARCHAR
+    , artist_id VARCHAR NOT NULL
     , year INTEGER
     , duration NUMERIC
     );
